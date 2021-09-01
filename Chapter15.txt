@@ -1,0 +1,130 @@
+let x;
+console.log(x);
+
+//-----------------------
+
+const book = {};
+
+book.title
+
+//-----------------------
+
+const arr = [];
+console.log(arr[0]);
+
+//-----------------------
+
+function doSomething(x){
+  console.log(x);
+}
+
+doSomething();
+
+//-----------------------
+
+function doSomething() {}
+
+console.log(doSomething());
+
+//-----------------------
+
+function doSomething(no){
+  if(no === 1){
+    return;
+  }
+  
+  return 0;
+}
+
+console.log(doSomething(1));
+
+//-----------------------
+
+console.log(undefined?.name);
+
+//-----------------------
+
+undefined ? true : false;
+
+//-----------------------
+
+typeof undefined
+
+//-----------------------
+
+let selectedBook = null;
+
+//-----------------------
+
+const map = Object.create(null);
+
+//-----------------------
+
+console.log(null?.name);
+
+//-----------------------
+
+typeof null
+
+//-----------------------
+
+const value = null;
+const newValue = value ?? 'default';
+
+//-----------------------
+
+const value = 0;
+const newValue = value ?? 'default';
+console.log(newValue);
+
+//-----------------------
+
+const value = 0;
+const newValue = value || 'default';
+console.log(newValue);
+
+//-----------------------
+
+const book = {
+    name: 'JavaScript The Good Parts',
+    author: {
+      name: 'Douglas Crockford'
+    }
+  };
+
+console.log(book.author.name);
+
+//-----------------------
+
+const book = {
+    name: 'How JavaScript Works'
+};
+
+console.log(book.author.name);
+
+//-----------------------
+
+const book = {
+    name: 'JavaScript The Good Parts',
+    author: {
+      name: 'Douglas Crockford'
+    }
+  };
+
+console.log(book.author.name);
+
+//-----------------------
+
+const book = {
+    name: 'How JavaScript Works'
+};
+
+console.log(book.author.name);
+
+//-----------------------
+
+const book = {
+    name: 'How JavaScript Works'
+};
+
+console.log(book.author?.name);

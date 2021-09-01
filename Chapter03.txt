@@ -1,0 +1,154 @@
+console.log('Text' === 'Text')
+
+//----------------
+
+String(0)
+String(true)
+String(null)
+String(undefined)
+String([1,2,3])
+String({ msg: 'Hi'})
+String(Symbol('id'))
+
+//----------------
+
+new String(' text ').trim();
+
+//----------------
+
+const text = ' \t\ntext\n\t ';
+const newText = text.trim();
+
+//----------------
+
+const str = 'abc';
+const newStr = str.replace('a', 'A');
+console.log(str);
+console.log(newStr)
+
+//----------------
+
+const text = 'ABC';
+text[0] = 'X';
+
+//----------------
+
+const quote = 'Here we stand';
+const firstIndex = quote.indexOf(' ');
+
+//----------------
+
+const quote = 'Here we stand';
+const lastIndex = quote.lastIndexOf(' ');
+
+//----------------
+
+const quote = 'First in Battle';
+quote.startsWith('First')
+
+//----------------
+
+const quote = 'We Remember';
+quote.endsWith('We')
+
+//----------------
+
+const quote = 'Our Blades are Sharp';
+quote.includes('are')
+
+//----------------
+
+const quote = 'Winter is coming';
+const part1 = quote.substr(0, 6);
+const part2 = quote.substr(10, 6);
+
+//----------------
+
+const quote = 'Winter is coming';
+const part = quote.substr(6);
+
+//----------------
+
+const quote = 'We Stand Together';
+const part = quote.substring(3, 8);
+
+//----------------
+
+const quote = 'We Stand Together';
+const part = quote.substring(3);
+
+//----------------
+
+const quote = 'You know nothing,Jon Snow';
+const commaIndex = quote.indexOf(',');
+const part = quote.substring(commaIndex + 1);
+
+//----------------
+
+'A' + ' ' + 'text'
+1 + '2'
+
+//----------------
+
+'A'.concat('B')
+'A'.concat(' ', 'text')
+'1'.concat(2)
+
+//----------------
+
+const quote = 'Winter is coming';
+const words = quote.split(' ');
+
+//----------------
+
+const csv = 'Fire,and,Blood';
+const arr = csv.split(',');
+
+//----------------
+
+const arr = ['Fire', 'and', 'Blood'];
+const text = arr.join();
+
+//----------------
+
+const arr = ['Fire', 'and', 'Blood'];
+const text = arr.join(' ');
+
+//----------------
+
+const word = 'Awake';
+`${word}! ${word}!`
+
+//----------------
+
+const word = 'Hi';
+console.log(word.length)
+
+//----------------
+
+const word = 'Hi🙂';
+console.log(word.length)
+
+//----------------
+
+const word = 'Hi;
+console.log(word.charAt(0))
+
+//----------------
+
+const word = 'Hi🙂';
+console.log(word.charAt(2))
+
+//----------------
+
+const word = 'Hi🙂';
+const chars = word.split('');
+
+//----------------
+
+const word = 'Hi🙂';
+const chars = Array.from(word);
+
+console.log(word.length);
+console.log(chars.length);
+console.log(chars[2]);

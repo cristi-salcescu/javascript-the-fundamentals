@@ -1,0 +1,240 @@
+const product = {
+  name: 'apple',
+  category: 'fruits',
+  price: 1.99
+}
+
+//---------------------
+
+const product = {
+  name: 'kiwi',
+}
+
+product.category = 'fruits';
+delete product.category;
+
+//---------------------
+
+const product = {
+  'english name' : 'papaya'
+}
+
+product['english name']
+
+//---------------------
+
+const product = {
+  name: 'lemon',
+  category: 'fruits',
+}
+
+const categoryKey = {
+  toString(){
+    return 'fruits'
+  }
+}
+
+game[categoryKey];
+
+//---------------------
+
+const name = 'apple';
+const category = 'fruits';
+const price = 1.99;
+
+const product = {
+  name: name,
+  category: category,
+  price: price
+}
+
+//---------------------
+
+const name = 'apple';
+const category = 'fruits';
+const price = 1.99;
+
+const product = {
+  name,
+  category,
+  price
+}
+
+//---------------------
+
+const product = {
+  name: 'apple',
+  category: 'fruits',
+  price: 1.99,
+  nutrients : {
+   carbs: 0.95,
+   fats: 0.3,
+   protein: 0.2
+ }
+}
+
+product.nutrients.carbs
+
+//---------------------
+
+const product = {
+  name : 'papaya',
+  toString: function(){
+    return this.name;
+  }
+};
+
+product.toString();
+
+//---------------------
+
+const productsMap = {
+  1 : { name: 'apple'},
+  2 : { name: 'kiwi'},
+  3 : { name: 'papaya'}
+}
+
+//---------------------
+
+const product = Object.freeze({
+ name: 'lemon',
+});
+
+product.category = 'fruits';
+product.name = 'orange';
+
+Object.isFrozen(product)
+
+//---------------------
+
+const product = {
+  name : 'pineapple',
+  category: 'fruits',
+  toString: function(){
+    return this.name;
+  }
+};
+
+const keys = Object.keys(product);
+const values = Object.values(product);
+
+//---------------------
+
+const product = {
+  name : 'pineapple',
+  category: 'fruits',
+  toString: function(){
+    return this.name;
+  }
+};
+
+const keyValuePairs = Object.entries(product);
+
+//---------------------
+
+const keyValuePairs = [
+ ['name', 'pineapple'],
+ ['category', 'fruits'],
+]
+
+const product = Object.fromEntries(keyValuePairs);
+
+//---------------------
+
+const product = {
+  name : 'pineapple',
+  category: 'fruits',
+  toString: function(){
+    return this.name;
+  }
+};
+
+const keys = Object.keys(product);
+
+//---------------------
+
+Object.defineProperty(product, 'toString', {
+  enumerable: false
+});
+
+const keys = Object.keys(product);
+
+//---------------------
+
+Object.defineProperty(product, 'toString', {
+    enumerable: false,
+    writable: false
+});
+
+product.toString = undefined;
+
+//---------------------
+
+const product = {
+  name: 'peach',
+  category: 'fruits',
+};
+
+const hasRight = false;
+const propName = 'name';
+
+Object.defineProperty(product, propName, {
+  get : function () {
+    if(hasRight){
+      return product[propName];
+    } else {
+      throw `${propName} no access`;
+    }
+  }
+});
+
+console.log(product.name)
+
+//---------------------
+
+const productMethods = {
+  toString: function(){
+    return this.name;
+  }
+};
+
+const product = {
+  name: 'blueberry',
+  category: 'fruits'
+};
+
+Object.assign(product, productMethods);
+product.toString()
+
+//---------------------
+
+const newProduct = Object.assign({}, product, productMethods);
+
+newProduct.toString()
+
+const product = {
+  name: 'lime'
+};
+
+const product = {
+  name: 'blueberry',
+  category: 'fruits'
+};
+
+Object.assign(product, productMethods);
+product.toString()
+
+//---------------------
+
+const newProduct = Object.assign({}, product, productMethods);
+
+newProduct.toString()
+
+//---------------------
+
+const product = {
+  name: 'lime'
+};
+
+const newProduct = Object.assign({}, product);
+product === newProduct

@@ -1,0 +1,185 @@
+const product = {
+  name: 'lime'
+}
+
+product.__proto__ === Object.prototype;
+
+console.log(product.toString);
+console.log(product.toLocaleString);
+
+//--------------------
+
+const cartPrototype = {
+  addProduct: function(product){
+    if(!this.products){
+     this.products = [product]
+    } else {
+     this.products.push(product);
+    }
+  },
+  getTotalPrice: function(){
+    return this.products.reduce((total, p) => total + p.price, 0);
+  }
+}
+
+//--------------------
+
+const cartPrototype = {
+  addProduct(product){ },
+  getTotalPrice(){ }
+}
+
+//--------------------
+
+const cart = Object.create(cartPrototype);
+cart.addProduct({name: 'orange', price: 1.25});
+cart.addProduct({name: 'lemon', price: 1.75});
+
+cart.getTotalPrice();
+
+cart.__proto__ === cartPrototype;
+
+Object.getPrototypeOf(cart) === cartPrototype;
+
+
+//--------------------
+
+const obj = {};
+
+Object.getPrototypeOf(obj) === Object.prototype;
+
+
+//--------------------
+
+const cartPrototype = {
+  products:[],
+  addProduct: function(product){
+      this.products.push(product);
+  },
+  getTotalPrice: function(){}
+}
+
+const cart1 = Object.create(cartPrototype);
+cart1.addProduct({name: 'orange', price: 1.25});
+cart1.addProduct({name: 'lemon', price: 1.75});
+
+cart1.getTotalPrice();
+
+const cart2 = Object.create(cartPrototype);
+cart2.getTotalPrice();
+
+//--------------------
+
+const obj = {};
+console.log(obj.toString);
+
+delete obj.toString
+console.log(obj.toString);
+
+//--------------------
+
+const obj = {};
+obj.toString = function(){};
+
+const prototype = Object.freeze({
+  toString : function (){
+    return this.name;
+  }
+});
+
+const product = Object.create(prototype);
+
+product.name = 'lime';
+product.toString = function (){
+   return `Name: ${this.name}`;
+  };
+
+
+//--------------------
+
+const prototype = {
+  toString : function (){
+    return this.name;
+  }
+};
+
+const product = Object.assign({ name: 'lemon'}, prototype);
+product.toString();
+
+const product = Object.create(prototype);
+product.name = 'lemon';
+
+product.toString();
+
+//--------------------
+
+class Cart{
+  constructor(){
+    this.products = [];
+  }
+  
+  addProduct(product){
+    this.products.push(product);
+  }
+  
+  getTotalPrice(){
+    return this.products.reduce((total, p) => total + p.price, 0);
+  }
+}
+
+const cart = new Cart();
+cart.addProduct({name: 'orange', price: 1.25});
+cart.addProduct({name: 'lemon', price: 1.75});
+
+console.log(cart.getTotalPrice());
+
+const cart2 = new Cart();
+console.log(cart2.getTotalPrice());
+
+Object.getPrototypeOf(cart) === Cart.prototype;
+
+console.log(cart.products);
+
+//--------------------
+
+class Cart{
+  #products
+
+  constructor(){
+    this.#products = [];
+  }
+  
+  addProduct(product){
+    this.#products.push(product);
+  }
+  
+  getTotalPrice(){
+    return this.#products.reduce((total, p) => total + p.price, 0);
+  }
+}
+
+cart.#products;
+
+//--------------------
+
+class ExtendedArray extends Array {
+ first() {
+   return this[0];
+  }
+}
+
+const arr = Array.of(1, 2, 3);
+
+//--------------------
+
+const arr = ExtendedArray.of(1, 2, 3);
+arr.first();
+
+//--------------------
+
+function double(no){
+  return no * 2;
+}
+
+const newArr = arr.map(double);
+newArr.first();
