@@ -1,121 +1,67 @@
+function outer(){
+  function inner(){}
+}
+
+//--------------------
+
+function outer(){
+  const x = 1;
+  function inner(){
+    console.log(x);
+  }
+}
+
+//--------------------
+
+function outer(){
+  const x = 1;
+  return function inner(){
+    console.log(x);
+  }
+}
+
+const log = outer();
+log();
+log();
+
+//--------------------
+
+function outer(){
+  const x = 1;
+  setTimeout(function inner(){
+    console.log(x);
+  }, 4000);
+}
+
+outer();
+
+//--------------------
+
 {
-  'name': 'The Cherry Orchard',
-  'premiered' : 1904
+  const x = 1;
+  setTimeout(function inner(){
+    console.log(x);
+  }, 4000);
 }
 
-//----------------------------
+//--------------------
 
-{
-  'author' : {
-    'firstName' : 'Anton',
-    'lastName': 'Cehov'
+function createRateIt(){
+  const ratings = [];
+  
+  return function(rating){
+    if(rating){
+      ratings.push(rating);
+    }
+    
+    const total = ratings.reduce((x, y) => x + y);
+    return total / ratings.length;
   }
 }
 
-//----------------------------
+const rateIt = createRateIt();
+rateIt(5);
+rateIt(3);
+rateIt(4);
 
-[
-  { 'name': 'Three Sisters' },
-  { 'name': 'The Cherry Orchard' },
-  { 'name': 'Ivanov' }
-]
-
-//----------------------------
-
-const jsonText = '{'name': 'The Cherry Orchard'}';
-
-const play = JSON.parse(jsonText);
-
-//----------------------------
-
-const play = JSON.parse('');
-
-//----------------------------
-
-const play = {
-  name : 'Ivanov',
-  author : 'Chekhov'
-}
-
-const json = JSON.stringify(play);
-
-//----------------------------
-
-const author = {
-  name: 'Anton Chekhov'
-}
-
-const play = {
-  name : 'The Cherry Orchard',
-  author
-}
-
-author.lastPlay = play;
-
-console.log(JSON.stringify(play));
-
-//----------------------------
-
-const play = {
-  name : 'Platonov',
-  author: 'Chekhov',
-  getFormattedTitle(){
-    return `${this.name} by ${this.author}`;
-  }
-}
-
-console.log(JSON.stringify(play));
-
-//----------------------------
-
-const play = {
-  [Symbol('name')] : 'Platonov',
-  author: 'Chekhov',
-}
-
-console.log(JSON.stringify(play));
-
-//----------------------------
-
-const play = {
-  name : 'Ivanov',
-  author : {
-   name: 'Chekhov'
-  }
-}
-
-const clone = { ...play }
-console.log(clone)
-
-play.author.name = 'Anton Chekhov';
-console.log(clone)
-
-//----------------------------
-
-const play = {
-  name : 'Ivanov',
-  author : {
-   name: 'Chekhov'
-  }
-}
-
-const clone = { ...play }
-console.log(clone)
-
-play.author.name = 'Anton Chekhov';
-console.log(clone)
-
-//----------------------------
-
-const play = {
-  name : 'Ivanov',
-  author : {
-    name: 'Chekhov'
-  }
-}
-
-const clone = JSON.parse(JSON.stringify(play));
-
-play.author.name = 'Anton Chekhov';
-
-console.log(clone)
+const avgRating = rateIt();

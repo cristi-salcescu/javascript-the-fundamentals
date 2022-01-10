@@ -1,251 +1,131 @@
-var name;
+const gamesObj = {
+  1: 'Citadels',
+  2: 'Tzolkin'  
+};
 
-console.log(name);
+//-------------------
 
-//------------------------
+const gamesMap = new Map([
+  [1, 'Citadels'],
+  [2, 'Tzolkin']
+]);
 
-{
-   var name = 'Jon Snow';
-}
+//-------------------
 
-console.log(name);
+console.log(gamesObj[1]);
+console.log(gamesObj['1']);
 
-//------------------------
+gamesMap.get(1)
+gamesMap.get('1')
 
-console.log(name);
-var name = 'Jon Snow';
+//-------------------
 
-//------------------------
+console.log(Object.prototype);
 
-var name = 'Eddard Stark'
-{
-   var name = 'Robb Stark';
-}
+const mapObject = {};
+console.log(mapObject['toString']);
 
-console.log(name);
+//-------------------
 
-//------------------------
+const mapObject = Object.create(null);
 
-var name = 'Eddard Stark'
-var name = 'Robb Stark';
+console.log(mapObject['toString']);
 
-console.log(name);
+//-------------------
 
-//------------------------
+const gamesObj = {
+  2: 'Tzolkin',
+  1: 'Citadels',
+};
 
-var name = 'Tywin Lannister';
+const keys = Object.keys(gamesObj);
 
-function process(){
-  var name = 'Tyrion Lannister';
-}
+const keyValuePairs = Object.entries(gamesObj);
 
-//------------------------
+//-------------------
 
-{
-   let name = 'Jon Snow';
-}
+const gamesMap = new Map([
+  [2, 'Tzolkin'],
+  [1, 'Citadels']
+])
 
-console.log(name);
+const keys = gamesMap.keys();
 
-//------------------------
+const keyValuePairs = gamesMap.entries();
 
-let name = 'Eddard Stark'
-{
-   let name = 'Robb Stark';
-}
+//-------------------
 
-console.log(name);
+gamesObj[1];
 
-//------------------------
+gamesMap.get(1);
 
-let name;
+//-------------------
 
-console.log(name);
+gamesMap.has(1);
 
-//------------------------
+gamesMap.get(3);
 
-console.log(name);
+gamesObj.hasOwnProperty(1);
 
-let name = 'Daenerys Targaryen';
+//-------------------
 
-//------------------------
+gamesMap.set(3, 'Catan'); 
 
-let name = 'Cersei Lannister';
-let name = 'Cersei Baratheon';
+gamesObj[3] = 'Catan';
 
-//------------------------
+//-------------------
 
-const name = 'A Game of Thrones';
-name = 'A Clash of Kings';
+gamesMap.delete(1);
 
-//------------------------
+delete gamesObl[1];
 
-const name = 'Eddard Stark'
-{
-   const name = 'Robb Stark';
-}
+//-------------------
 
-console.log(name);
+console.log(gamesMap.size);
 
-//------------------------
+gamesMap.size === 0
 
-const castle = 'Casterly Rock';
+const size = Object.keys(gamesObj).length;
+console.log(size);
 
-//------------------------
+//-------------------
 
-const castle = { name : 'Casterly Rock' };
+const gamesMap = new Map([
+  [1, 'Citadels'],
+  [2, 'Tzolkin']
+]);
 
-castle.name = 'Winterfell';
-console.log(castle);
-
-//------------------------
-
-const castle = Object.freeze({ 
-  name : 'Casterly Rock' 
+gamesMap.forEach((value, key)=>{
+   console.log(`${key} - ${value}`)
   });
-  
-castle.name = 'Winterfell';
 
-//------------------------
+//-------------------
 
-const arr = [1, 2, 3];
+const gamesObj = {
+  1: 'Citadels',
+  2: 'Tzolkin'  
+};
 
-const [a, b, c] = arr;
+Object
+  .entries(gamesObj)
+  .forEach(([key, value])=>{
+    console.log(`${key} - ${value}`)
+  });
 
-console.log(a);
-console.log(b);
-console.log(c);
+//-------------------
 
-//------------------------
+const gamesObj = {
+  1: 'Citadels',
+  2: 'Tzolkin'  
+};
 
-const arr = [1, 2, 3];
-let a, b, c;
-[a, b, c] = [1, 2, 3];
+const json = JSON.stringify(gamesObj);
 
-console.log(a);
-console.log(b);
-console.log(c);
+//-------------------
 
-//------------------------
+const gamesMap = new Map([
+  [1, 'Citadels'],
+  [2, 'Tzolkin']
+]);
 
-const arr = [1, 2, 3];
-const [a, b] = arr;
-
-//------------------------
-
-const [a, b, c] = [1, 2];
-console.log(a);
-console.log(b);
-console.log(c);
-
-//------------------------
-
-const [a, b, c = 0] = [1, 2]
-console.log(a);
-console.log(b);
-console.log(c);
-
-//------------------------
-
-const [a, ...newArr] = [1, 2, 3];
-
-console.log(a);
-console.log(newArr);
-
-//------------------------
-
-function getValues(){
-  const v1 = 1;
-  const v2 = 2;
-  return [v1, v2];
-}
-
-const [a, b] = getValues();
-console.log(a);
-console.log(b);
-
-//------------------------
-
-const point = { x: 1, y: 2};
-
-const {x, y} = point;
-
-console.log(x);
-console.log(y);
-
-//------------------------
-
-const { x } = point;
-
-console.log(x);
-
-//------------------------
-
-const { x, z } = point;
-
-console.log(x);
-console.log(z);
-
-//------------------------
-
-const { x, z = 0 } = point;
-
-console.log(x);
-console.log(z);
-
-//------------------------
-
-const point = { x: 1, y: 2};
-const { x : xAxis, y: yAxis } = point;
-
-console.log(xAxis);
-console.log(yAxis);
-
-//------------------------
-
-function getValues(){
-  const v1 = 1;
-  const v2 = 2;
-  return [v1, v2];
-}
-
-const [a, b] = getValues();
-console.log(a);
-console.log(b);
-
-//------------------------
-
-const point = { x: 1, y: 2};
-
-const {x, y} = point;
-
-console.log(x);
-console.log(y);
-
-//------------------------
-
-const { x } = point;
-
-console.log(x); //1
-
-//------------------------
-
-const { x, z } = point;
-
-console.log(x);
-console.log(z);
-
-//------------------------
-
-const { x, z = 0 } = point;
-
-console.log(x);
-console.log(z);
-
-//------------------------
-
-const point = { x: 1, y: 2};
-const { x : xAxis, y: yAxis } = point;
-
-console.log(xAxis);
-console.log(yAxis);
+const json = JSON.stringify(gamesMap);

@@ -1,175 +1,118 @@
-globalThis.hasOwnProperty('NaN')  
-
-globalThis.hasOwnProperty('Number')  
-
-globalThis.hasOwnProperty('setTimeout')  
-
-globalThis.hasOwnProperty('Math')  
-
-//-------------------------------
-
-var numberArr = [1, 2, 3];
-console.log(globalThis.numberArr);
-
-//-------------------------------
-
-const numberArr = [1, 2, 3];
-
-console.log(globalThis.numberArr);
-
-console.log(globalThis.hasOwnProperty('numberArr'));
-
-//-------------------------------
-
-globalThis.numberArr = [1, 2, 3];
-console.log(numberArr);
-
-//-------------------------------
-
-const add_todo = 'add_todo';
-const remove_todo = 'remove_todo';
-
-export { add_todo, remove_todo };
-
-//-------------------------------
-
-import { add_todo, remove_todo } from './actions';
-
-console.log(add_todo);
-
-//-------------------------------
-
-import { add_todo as addTodo } from './actions';
-
-console.log(addTodo);
-
-//-------------------------------
-
-import * as actions from './actions';
-
-console.log(actions.add_todo);
-
-//-------------------------------
-
-function square(x) {
-  return x * x;
-}
-
-export default square;
-
-//-------------------------------
-
-import computeSquare from './square';
-
-computeSquare(3); 
-
-//-------------------------------
-
-function doTask(){
-  let x = 1;
-  console.log(x);
-}
-
-doTask();
-
-console.log(x);
-
-//-------------------------------
-
-{
-  const x = 1;
-}
-
-console.log(x); 
-
-//-------------------------------
-
-function outer(){
-  const x = 1;
-  
-  function inner(){
-    console.log(x);
-  }
-  
-  inner();
-}
-
-outer();
-
-//-------------------------------
-
-function secondOuter(){
-  const x = 1;
-  
-  function firstOuter(){
-    function inner(){
-      console.log(x);
-    }
-    inner();
-  }
-  firstOuter();
-}
-
-secondOuter();
-
-//-------------------------------
-
-{
-  const x = 1; 
-  {
-    {
-     console.log(x);
-    }
-  }
-}
-
-//-------------------------------
-
-{
-  const x = 1;
-  
-  setTimeout(function inner(){
-    console.log(x);
-  }, 10000);
-}
-
-//-------------------------------
-
-function doSomething() {
-  x = 1;
-}
-
-doSomething();
-console.log(x);
-
-//-------------------------------
-
 'use strict';
-function doSomething() {
-  x = 1;
-}
-
-doSomething();
-
-//-------------------------------
-
-function doSomething() {
- 'use strict';
-  x = 1;
-}
-
-function doSomethingElse() {
-  y = 1;
-}
-
-doSomethingElse();
-console.log(y);
-
-doSomething();
-
-//-------------------------------
-
-'use strict';
-
 const obj = Object.freeze({});
-obj.value = 1;
+
+obj.msg = 'Hi';
+
+//-------------------------
+
+const obj = null;
+const name = obj.name;
+
+//-------------------------
+
+const text = `Name: ${name}`;
+console.log(name);
+
+//-------------------------
+
+throw 'This is an error'
+
+throw 1
+
+throw { code : 1, message: 'User not authorized' }
+
+throw new Error('This was an error')
+
+//-------------------------
+
+function divide(no, divisor){
+  if(divisor === 0){
+    throw new Error('Division by zero error')
+  }
+  
+  return no / divisor;
+}
+
+divide(1, 0);
+
+//-------------------------
+
+'use strict';
+
+try {
+  let text ='aBC';
+  text[0] = 'A';
+} 
+catch(e){
+  const { message } = e
+  console.log(message)
+}
+
+//-------------------------
+
+JSON.parse('');
+
+//-------------------------
+
+function isValidJSON(text){
+  try {
+    JSON.parse(text);
+    return true;
+  } 
+  catch(e) {
+    return false; 
+  }
+}
+
+console.log(isValidJSON(''));
+
+console.log(isValidJSON('{}'));
+
+//-------------------------
+
+function process(){
+  throw new Error('Could not transform');
+}
+
+try {
+  process();
+}
+catch(e){
+  const errorMessage = `Exception: ${e.message}`;
+  console.log(errorMessage);
+  throw e;
+}
+
+//-------------------------
+
+function process(){
+  throw new Error('Could not transform');
+}
+
+console.time('duration');
+process();
+console.timeEnd('duration');
+
+//-------------------------
+
+function process(){
+  throw new Error('Could not transform');
+}
+
+console.time('duration');
+process();
+console.timeEnd('duration');
+
+//-------------------------
+
+function process(){
+  throw new Error('Could not transform');
+}
+
+console.time('duration');
+try{
+  process();
+}
+finally{  
+  console.timeEnd('duration');
+}

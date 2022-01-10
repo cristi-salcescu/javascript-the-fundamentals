@@ -1,118 +1,163 @@
-'use strict';
-const obj = Object.freeze({});
+const value = NaN;
 
-obj.msg = 'Hi';
-
-//-------------------------
-
-const obj = null;
-const name = obj.name;
-
-//-------------------------
-
-const text = `Name: ${name}`;
-console.log(name);
-
-//-------------------------
-
-throw 'This is an error'
-
-throw 1
-
-throw { code : 1, message: 'User not authorized' }
-
-throw new Error('This was an error')
-
-//-------------------------
-
-function divide(no, divisor){
-  if(divisor === 0){
-    throw new Error('Division by zero error')
-  }
-  
-  return no / divisor;
+if(Number.isNaN(value)){
+  console.log('NaN');
 }
 
-divide(1, 0);
+//-----------------------
 
-//-------------------------
+const value = 1.2;
 
-'use strict';
-
-try {
-  let text ='aBC';
-  text[0] = 'A';
-} 
-catch(e){
-  const { message } = e
-  console.log(message)
+if(Number.isInteger(value)){
+  console.log('Integer');
+} else {
+  console.log('Not an Integer');
 }
 
-//-------------------------
+//-----------------------
 
-JSON.parse('');
+const action = 'INCREMENT';
 
-//-------------------------
+switch(action){
+  case 'INCREMENT':
+    console.log('INCREMENT');
+  break;
+  case 'DECREMENT':
+    console.log('INCREMENT');
+  break;
+  default:
+    console.log('DEFAULT');
+}
 
-function isValidJSON(text){
-  try {
-    JSON.parse(text);
-    return true;
-  } 
-  catch(e) {
-    return false; 
+//-----------------------
+
+function doAction(action, value){
+  switch(action){
+    case 'INCREMENT':
+      return value + 1
+    case 'DECREMENT':
+      return value - 1;
+    default:
+      return value;
   }
 }
 
-console.log(isValidJSON(''));
+doAction('INCREMENT', 0);
 
-console.log(isValidJSON('{}'));
+//-----------------------
 
-//-------------------------
-
-function process(){
-  throw new Error('Could not transform');
+let sum = 0;
+for(i = 1; i <= 3; i++){
+  sum = sum + i;
 }
 
-try {
-  process();
-}
-catch(e){
-  const errorMessage = `Exception: ${e.message}`;
-  console.log(errorMessage);
-  throw e;
-}
+console.log(sum);
 
-//-------------------------
+//-----------------------
 
-function process(){
-  throw new Error('Could not transform');
+const flight = {
+  no: 815,
+  from: 'Sydney',
+  to: 'Los Angeles'
 }
 
-console.time('duration');
-process();
-console.timeEnd('duration');
-
-//-------------------------
-
-function process(){
-  throw new Error('Could not transform');
+for (key in flight) {
+  console.log(key)
 }
 
-console.time('duration');
-process();
-console.timeEnd('duration');
+//-----------------------
 
-//-------------------------
+const letters = ['A', 'B', 'C'];
 
-function process(){
-  throw new Error('Could not transform');
+for (index in letters) {
+  console.log(index);
 }
 
-console.time('duration');
-try{
-  process();
+//-----------------------
+
+for(const value of [1,2,3]){
+  console.log(value);
 }
-finally{  
-  console.timeEnd('duration');
+
+//-----------------------
+
+for(const value of new Set([1,2,3])){
+  console.log(value);
 }
+
+//-----------------------
+
+const map = new Map();
+map.set(1, 'A');
+map.set(2, 'B');
+for(const value of map){
+  console.log(value);
+}
+
+//-----------------------
+
+for(const value of 'ABC'){
+  console.log(value);
+}
+
+//-----------------------
+
+let i = 3, sum = 0;
+
+while(i){
+  sum = sum + i;
+  i = i - 1 ;
+}
+
+console.log(sum);
+
+//-----------------------
+
+const x = 1;
+const y = 2;
+
+//-----------------------
+
+const x = 1
+const y = 2
+
+//-----------------------
+
+const x = 1; const y = 2;
+
+function getGameObject(){
+  return 
+    { name: 'Fornite'};
+}
+
+console.log(getGameObject());
+
+//-----------------------
+
+function getGameObject(){
+  return;
+    { name: 'Fornite'};
+}
+
+//-----------------------
+
+function getGameObject(){
+  return { 
+    name: 'Fornite'
+  };
+}
+
+console.log(getGameObject());
+
+//-----------------------
+
+return
+1
+
+//-----------------------
+
+return 1;
+return 'Hello'
+return true;
+
+throw 'There was an error';

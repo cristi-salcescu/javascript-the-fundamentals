@@ -1,144 +1,103 @@
-const movie = function(){};
-movie.title = 'Toc Toc';
-movie.year = 2017;
-delete movie.year;
+const currentDate = new Date();
+console.log(currentDate);
 
-//----------------------
+//--------------------------
 
-const Integer = function(value){ 
-  return parseInt(value);
-};
+const date = new Date(2021, 0, 1, 10, 0);
+console.log(date);
 
-Integer('123');
+//--------------------------
 
-//----------------------
+const date = new Date(2021, 0);
+console.log(date);
 
-Integer.isInteger = function(value){
-  return value === Number.parseInt(value);
-}
+//--------------------------
 
-Integer.isInterger(123);
+const date = new Date(2022, 0, 1, 10, 15, 30);
+date.getFullYear();
+date.getMonth();
+date.getDate();
+date.getHours();
+date.getMinutes();
+date.getSeconds();
 
-//----------------------
+//--------------------------
 
-const x = function(){ return 'Hi' };
-x.type = 'Greeting';
+const date = new Date(2022, 0, 1, 10, 15, 30);
 
-x();
+date.toDateString();
+date.toTimeString();
 
-x.type
+//--------------------------
 
-//----------------------
+const date = new Date('2021-01-15');
+date.toDateString();
 
-const text = 'Hi';
-text.type = 'greeting';
+//--------------------------
 
-console.log(text.type);
+const date = new Date("2021-01-15T10:10:00Z");
+date.toDateString();
+date.toTimeString();
 
-//----------------------
+//--------------------------
 
-'in bruges'.toUpperCase(); 
+const date = new Date("2021-01-15T10:10:00Z");
+date.toISOString();
 
-//----------------------
+//--------------------------
 
-null.msg; 
+const timestamp = Date.now();
 
-undefined.length; 
+//--------------------------
 
-//----------------------
+const date = new Date(3_600_000);
+date.getTime();
 
-const x = null;
+//--------------------------
 
-x.msg = 'Hi';
+const now = new Date();
+now.getTime() === now.valueOf();
+Number(now) === now.valueOf();
 
-//----------------------
+//--------------------------
 
-typeof(null);
+const offset = new Date().getTimezoneOffset();
 
-//----------------------
+//--------------------------
 
-Number('1')
+const date = new Date(2021, 0, 15, 10, 10);
+date.getTimezoneOffset();
+date.getUTCHours();
+date.getHours();
 
-String(1)
+//--------------------------
 
-Boolean(0)
+const date = new Date(3_600_000);
+date.getTimezoneOffset();
+date.getUTCHours();
+date.getHours();
 
-//----------------------
+//--------------------------
 
-const no = 1;
-typeof no
+const date = new Date(2021, 0, 15, 10, 10);
+date.toUTCString();
 
-//----------------------
+//--------------------------
 
-const noObj = new Number(1);
-typeof noObj
+const date = new Date(Date.UTC(2021, 0, 15, 10, 10));
+date.getTimezoneOffset();
+date.getUTCHours();
+date.getHours();
 
-noObj.valueOf() === no
+//--------------------------
 
-//----------------------
+const date = new Date('2021-01-15T10:10:00.000Z');
+date.getTimezoneOffset();
+date.getUTCHours();
+date.getHours();
 
-const a = 1;
-const b = a;
+//--------------------------
 
-//----------------------
-
-const a = { value: 1};
-const b = a;
-
-a.value = 2;
-console.log(b.value)
-
-//----------------------
-
-function changeTo(value, newValue){
-  value = newValue;
-}
-
-const a = 1;
-changeTo(a, 2);
-
-console.log(a);
-
-//----------------------
-
-function changeTo(obj, newValue){
-  obj.value = newValue;
-}
-
-const a = {value : 1};
-changeTo(a, 2);
-
-console.log(a);
-
-//----------------------
-
-1 === 1
-
-'Hi' === 'Hi'
-
-true === true
-
-[] === []
-
-{} === {}
-
-{ msg: 'Hi'} === { msg: 'Hi'}
-
-//----------------------
-
-const obj1 = {};
-const obj2 = obj1;
-
-obj1 === obj2
-
-//----------------------
-
-'use strict';
-
-const text = 'ABC';
-text[0] = 'a';
-
-//----------------------
-
-const arr = ['A', 'B', 'C'];
-arr[0] = 'a';
+const date = new Date('2021-01-15T10:10:00.000');
+date.getUTCHours();
+date.getHours();

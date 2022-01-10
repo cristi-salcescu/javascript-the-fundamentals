@@ -1,80 +1,126 @@
-const series = {
-  title: 'Star Trek',
-  genre: 'SF'
+function doOperation() {
+  for (i = 0; i < 900719925; i++) {}
 }
 
-//---------------------
+console.log('start')
+doOperation();
+console.log('end');
 
-const obj = {};
-obj.__proto__ === Object.prototype;
+//-------------------------
 
-//---------------------
-
-const sum = function(x,y){ return x + y }
-
-//---------------------
-
-function startsWith(text){
-  return function(name){
-    return name.startsWith(text);
-  }
+function doLongOperation() {
+  for (i = 0; i < Number.MAX_SAFE_INTEGER; i++) {}
 }
 
-const games = ['Fornite', 'Overwatch', 'Valorant'];
-const newGames = games.filter(startsWith('Fo'));
-console.log(newGames);
+doLongOperation();
 
-//---------------------
+//-------------------------
 
-function createCounter(){
-  let x = 0;
-  return function(){
-    x = x + 1;
-    return x;
-  }
+function max(a, b) {
+  return a > b ? a : b;
 }
 
-const count = createCounter();
-count();
-count();
-count();
+const result = max(1, 2);
+console.log(result);
 
-//---------------------
+//-------------------------
 
-const upperText = 'Minecraft'.toUpperCase();
+const result = confirm('Are you sure?');
+console.log(result);
 
-//---------------------
+//-------------------------
 
-const dto = { value: 1 };
+setTimeout(() => {
+  console.log('run')
+}, 3000);
 
-//---------------------
+//-------------------------
 
-const dto = { value: 'text'}
+const timerid = setTimeout(() => {
+    console.log('run')
+}, 3000);
 
-//---------------------
+clearTimeout(timerid);
 
-function getName(value){
-  return value?.name;
+//-------------------------
+
+setInterval(() => {
+  console.log('run')
+}, 3000);
+
+//-------------------------
+
+const timerid = setInterval(() => {
+  console.log('run')
+}, 3000);
+
+clearInterval(timerid);
+
+//-------------------------
+
+setTimeout(()=>{
+ console.log(1);
+}, 0);
+
+console.log(2);
+
+//-------------------------
+
+const obj = {
+  value : 1
+};
+ 
+console.log(obj); 
+obj.value = 100;
+
+console.log({...obj});
+console.log(JSON.stringify(obj));
+
+//-------------------------
+
+function getName(idx){
+  return `Item ${idx}`;
 }
 
-getName({name: 'Darth Vader'});
+const name = getName(1);
 
-getName(null);
-getName(0);
-getName('');
+//-------------------------
 
-//---------------------
+function getName(idx){
+  setTimeout(()=>{
+    return `Item ${idx}`;
+  }, 1000)
+}
 
-const gamesArr = [
-  { name: 'Tzolkin' }, 
-  { name: 'Catan' }
-];
+const name = getName(1);
 
-gamesArr.map(getName);
+//-------------------------
 
-const moviesArr = [
- { name: 'Revenge of the Sith', genre: 'fantasy' }, 
- { name: 'A New Hope', genre: 'fantasy' }
-];
+function getName(idx, callback){
+  setTimeout(() => {
+    callback(`Item ${idx}`);
+  }, 1000)
+}
 
-moviesArr.map(getName);
+function logResult(name){
+  console.log(name);
+}
+
+getName(1, logResult);
+
+getName(1, name => {
+  console.log(name);
+});
+
+//-------------------------
+
+function doOperation() {
+  console.time()
+  for (i = 0; i < 900719925; i++) {}
+  console.timeEnd()
+}
+
+setTimeout(doOperation, 0);
+setTimeout(doOperation, 0);
+setTimeout(doOperation, 0);
+console.log('all started');

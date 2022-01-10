@@ -1,67 +1,79 @@
-function outer(){
-  function inner(){}
+typeof 1
+typeof ''
+typeof {}
+typeof function(){}
+
+//-----------------
+
+let x = 1;
+
+typeof 1;
+
+typeof x;
+
+//-----------------
+
+x = 1n;
+
+typeof 1n;
+
+typeof x;
+
+//-----------------
+
+const x = 1;
+typeof x;
+
+x = '';
+
+//-----------------
+
+const obj = { x: 1 };
+
+typeof obj.x
+
+//-----------------
+
+'use strict';
+const obj = Object.freeze({
+  x: 1
+});
+
+typeof obj.x
+
+obj.x = 2n;
+
+//-----------------
+
+const obj = { x: 1 };
+
+typeof obj.x
+
+//-----------------
+
+'use strict';
+const obj = Object.freeze({
+  x: 1
+});
+
+typeof obj.x
+
+obj.x = 2n;
+
+//-----------------
+
+function log(x){
+  console.log(x);
 }
 
-//--------------------
+log(1);
+log('one');
+log({value : 1});
 
-function outer(){
-  const x = 1;
-  function inner(){
-    console.log(x);
-  }
-}
+//-----------------
 
-//--------------------
+const arr = [1, '2', '3'];
 
-function outer(){
-  const x = 1;
-  return function inner(){
-    console.log(x);
-  }
-}
+arr.map(Number);
 
-const log = outer();
-log();
-log();
-
-//--------------------
-
-function outer(){
-  const x = 1;
-  setTimeout(function inner(){
-    console.log(x);
-  }, 4000);
-}
-
-outer();
-
-//--------------------
-
-{
-  const x = 1;
-  setTimeout(function inner(){
-    console.log(x);
-  }, 4000);
-}
-
-//--------------------
-
-function createRateIt(){
-  const ratings = [];
-  
-  return function(rating){
-    if(rating){
-      ratings.push(rating);
-    }
-    
-    const total = ratings.reduce((x, y) => x + y);
-    return total / ratings.length;
-  }
-}
-
-const rateIt = createRateIt();
-rateIt(5);
-rateIt(3);
-rateIt(4);
-
-const avgRating = rateIt();
+arr.map(String);

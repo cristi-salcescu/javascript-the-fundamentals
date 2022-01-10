@@ -1,92 +1,121 @@
-'2' - 1
-
-'1' * 2
-
-true - 1
-
-'two' - 1 
-
-//--------------------------
-
-[] + []
-
-//--------------------------
-
-String([])
-
-//--------------------------
-
-true + 1
-
-{} + []
-
-1 + '2'
-
-//--------------------------
-
-null == undefined
-1 == '1'
-[] == ![]
-
-//--------------------------
-
-function sum(x, y){
-  return x + y;
+{
+  'name': 'The Cherry Orchard',
+  'premiered' : 1904
 }
 
-sum('1', 2);
+//----------------------------
 
-//--------------------------
-
-function sum(_x, _y){
-  const x = Number(_x);
-  const y = Number(_y);
-  return x + y;
+{
+  'author' : {
+    'firstName' : 'Anton',
+    'lastName': 'Cehov'
+  }
 }
 
-sum('1', 2);
+//----------------------------
 
-//--------------------------
+[
+  { 'name': 'Three Sisters' },
+  { 'name': 'The Cherry Orchard' },
+  { 'name': 'Ivanov' }
+]
 
-1 + '2' === `${1}${'2'}`
+//----------------------------
 
-//--------------------------
+const jsonText = '{'name': 'The Cherry Orchard'}';
 
-[] == ![]
-[] == false
+const play = JSON.parse(jsonText);
 
-//--------------------------
+//----------------------------
 
-1 == '1'
+const play = JSON.parse('');
 
-//--------------------------
+//----------------------------
 
-'0' == 0
-  0 == ''
-'0' == ''
+const play = {
+  name : 'Ivanov',
+  author : 'Chekhov'
+}
 
-//--------------------------
+const json = JSON.stringify(play);
 
-1 + '2' === `${1}${'2'}`
+//----------------------------
 
-//--------------------------
+const author = {
+  name: 'Anton Chekhov'
+}
 
-[] == ![]
-[] == false
+const play = {
+  name : 'The Cherry Orchard',
+  author
+}
 
-//--------------------------
+author.lastPlay = play;
 
-1 == '1'
+console.log(JSON.stringify(play));
 
-//--------------------------
+//----------------------------
 
-'0' == 0
-  0 == ''
-'0' == ''
+const play = {
+  name : 'Platonov',
+  author: 'Chekhov',
+  getFormattedTitle(){
+    return `${this.name} by ${this.author}`;
+  }
+}
 
-//--------------------------
+console.log(JSON.stringify(play));
 
-1 === '1'
-[] === []
-[] === ![]
-[] === false
+//----------------------------
+
+const play = {
+  [Symbol('name')] : 'Platonov',
+  author: 'Chekhov',
+}
+
+console.log(JSON.stringify(play));
+
+//----------------------------
+
+const play = {
+  name : 'Ivanov',
+  author : {
+   name: 'Chekhov'
+  }
+}
+
+const clone = { ...play }
+console.log(clone)
+
+play.author.name = 'Anton Chekhov';
+console.log(clone)
+
+//----------------------------
+
+const play = {
+  name : 'Ivanov',
+  author : {
+   name: 'Chekhov'
+  }
+}
+
+const clone = { ...play }
+console.log(clone)
+
+play.author.name = 'Anton Chekhov';
+console.log(clone)
+
+//----------------------------
+
+const play = {
+  name : 'Ivanov',
+  author : {
+    name: 'Chekhov'
+  }
+}
+
+const clone = JSON.parse(JSON.stringify(play));
+
+play.author.name = 'Anton Chekhov';
+
+console.log(clone)

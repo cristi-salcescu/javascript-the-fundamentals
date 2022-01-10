@@ -1,126 +1,175 @@
-function doOperation() {
-  for (i = 0; i < 900719925; i++) {}
+globalThis.hasOwnProperty('NaN')  
+
+globalThis.hasOwnProperty('Number')  
+
+globalThis.hasOwnProperty('setTimeout')  
+
+globalThis.hasOwnProperty('Math')  
+
+//-------------------------------
+
+var numberArr = [1, 2, 3];
+console.log(globalThis.numberArr);
+
+//-------------------------------
+
+const numberArr = [1, 2, 3];
+
+console.log(globalThis.numberArr);
+
+console.log(globalThis.hasOwnProperty('numberArr'));
+
+//-------------------------------
+
+globalThis.numberArr = [1, 2, 3];
+console.log(numberArr);
+
+//-------------------------------
+
+const add_todo = 'add_todo';
+const remove_todo = 'remove_todo';
+
+export { add_todo, remove_todo };
+
+//-------------------------------
+
+import { add_todo, remove_todo } from './actions';
+
+console.log(add_todo);
+
+//-------------------------------
+
+import { add_todo as addTodo } from './actions';
+
+console.log(addTodo);
+
+//-------------------------------
+
+import * as actions from './actions';
+
+console.log(actions.add_todo);
+
+//-------------------------------
+
+function square(x) {
+  return x * x;
 }
 
-console.log('start')
-doOperation();
-console.log('end');
+export default square;
 
-//-------------------------
+//-------------------------------
 
-function doLongOperation() {
-  for (i = 0; i < Number.MAX_SAFE_INTEGER; i++) {}
+import computeSquare from './square';
+
+computeSquare(3); 
+
+//-------------------------------
+
+function doTask(){
+  let x = 1;
+  console.log(x);
 }
 
-doLongOperation();
+doTask();
 
-//-------------------------
+console.log(x);
 
-function max(a, b) {
-  return a > b ? a : b;
+//-------------------------------
+
+{
+  const x = 1;
 }
 
-const result = max(1, 2);
-console.log(result);
+console.log(x); 
 
-//-------------------------
+//-------------------------------
 
-const result = confirm('Are you sure?');
-console.log(result);
-
-//-------------------------
-
-setTimeout(() => {
-  console.log('run')
-}, 3000);
-
-//-------------------------
-
-const timerid = setTimeout(() => {
-    console.log('run')
-}, 3000);
-
-clearTimeout(timerid);
-
-//-------------------------
-
-setInterval(() => {
-  console.log('run')
-}, 3000);
-
-//-------------------------
-
-const timerid = setInterval(() => {
-  console.log('run')
-}, 3000);
-
-clearInterval(timerid);
-
-//-------------------------
-
-setTimeout(()=>{
- console.log(1);
-}, 0);
-
-console.log(2);
-
-//-------------------------
-
-const obj = {
-  value : 1
-};
- 
-console.log(obj); 
-obj.value = 100;
-
-console.log({...obj});
-console.log(JSON.stringify(obj));
-
-//-------------------------
-
-function getName(idx){
-  return `Item ${idx}`;
+function outer(){
+  const x = 1;
+  
+  function inner(){
+    console.log(x);
+  }
+  
+  inner();
 }
 
-const name = getName(1);
+outer();
 
-//-------------------------
+//-------------------------------
 
-function getName(idx){
-  setTimeout(()=>{
-    return `Item ${idx}`;
-  }, 1000)
+function secondOuter(){
+  const x = 1;
+  
+  function firstOuter(){
+    function inner(){
+      console.log(x);
+    }
+    inner();
+  }
+  firstOuter();
 }
 
-const name = getName(1);
+secondOuter();
 
-//-------------------------
+//-------------------------------
 
-function getName(idx, callback){
-  setTimeout(() => {
-    callback(`Item ${idx}`);
-  }, 1000)
+{
+  const x = 1; 
+  {
+    {
+     console.log(x);
+    }
+  }
 }
 
-function logResult(name){
-  console.log(name);
+//-------------------------------
+
+{
+  const x = 1;
+  
+  setTimeout(function inner(){
+    console.log(x);
+  }, 10000);
 }
 
-getName(1, logResult);
+//-------------------------------
 
-getName(1, name => {
-  console.log(name);
-});
-
-//-------------------------
-
-function doOperation() {
-  console.time()
-  for (i = 0; i < 900719925; i++) {}
-  console.timeEnd()
+function doSomething() {
+  x = 1;
 }
 
-setTimeout(doOperation, 0);
-setTimeout(doOperation, 0);
-setTimeout(doOperation, 0);
-console.log('all started');
+doSomething();
+console.log(x);
+
+//-------------------------------
+
+'use strict';
+function doSomething() {
+  x = 1;
+}
+
+doSomething();
+
+//-------------------------------
+
+function doSomething() {
+ 'use strict';
+  x = 1;
+}
+
+function doSomethingElse() {
+  y = 1;
+}
+
+doSomethingElse();
+console.log(y);
+
+doSomething();
+
+//-------------------------------
+
+'use strict';
+
+const obj = Object.freeze({});
+obj.value = 1;

@@ -1,163 +1,130 @@
-const value = NaN;
-
-if(Number.isNaN(value)){
-  console.log('NaN');
-}
+let x;
+console.log(x);
 
 //-----------------------
 
-const value = 1.2;
+const book = {};
 
-if(Number.isInteger(value)){
-  console.log('Integer');
-} else {
-  console.log('Not an Integer');
-}
+book.title
 
 //-----------------------
 
-const action = 'INCREMENT';
-
-switch(action){
-  case 'INCREMENT':
-    console.log('INCREMENT');
-  break;
-  case 'DECREMENT':
-    console.log('INCREMENT');
-  break;
-  default:
-    console.log('DEFAULT');
-}
+const arr = [];
+console.log(arr[0]);
 
 //-----------------------
 
-function doAction(action, value){
-  switch(action){
-    case 'INCREMENT':
-      return value + 1
-    case 'DECREMENT':
-      return value - 1;
-    default:
-      return value;
+function doSomething(x){
+  console.log(x);
+}
+
+doSomething();
+
+//-----------------------
+
+function doSomething() {}
+
+console.log(doSomething());
+
+//-----------------------
+
+function doSomething(no){
+  if(no === 1){
+    return;
   }
+  
+  return 0;
 }
 
-doAction('INCREMENT', 0);
+console.log(doSomething(1));
 
 //-----------------------
 
-let sum = 0;
-for(i = 1; i <= 3; i++){
-  sum = sum + i;
-}
-
-console.log(sum);
+console.log(undefined?.name);
 
 //-----------------------
 
-const flight = {
-  no: 815,
-  from: 'Sydney',
-  to: 'Los Angeles'
-}
-
-for (key in flight) {
-  console.log(key)
-}
+undefined ? true : false;
 
 //-----------------------
 
-const letters = ['A', 'B', 'C'];
-
-for (index in letters) {
-  console.log(index);
-}
+typeof undefined
 
 //-----------------------
 
-for(const value of [1,2,3]){
-  console.log(value);
-}
+let selectedBook = null;
 
 //-----------------------
 
-for(const value of new Set([1,2,3])){
-  console.log(value);
-}
+const map = Object.create(null);
 
 //-----------------------
 
-const map = new Map();
-map.set(1, 'A');
-map.set(2, 'B');
-for(const value of map){
-  console.log(value);
-}
+console.log(null?.name);
 
 //-----------------------
 
-for(const value of 'ABC'){
-  console.log(value);
-}
+typeof null
 
 //-----------------------
 
-let i = 3, sum = 0;
-
-while(i){
-  sum = sum + i;
-  i = i - 1 ;
-}
-
-console.log(sum);
+const value = null;
+const newValue = value ?? 'default';
 
 //-----------------------
 
-const x = 1;
-const y = 2;
+const value = 0;
+const newValue = value ?? 'default';
+console.log(newValue);
 
 //-----------------------
 
-const x = 1
-const y = 2
+const value = 0;
+const newValue = value || 'default';
+console.log(newValue);
 
 //-----------------------
 
-const x = 1; const y = 2;
-
-function getGameObject(){
-  return 
-    { name: 'Fornite'};
-}
-
-console.log(getGameObject());
-
-//-----------------------
-
-function getGameObject(){
-  return;
-    { name: 'Fornite'};
-}
-
-//-----------------------
-
-function getGameObject(){
-  return { 
-    name: 'Fornite'
+const book = {
+    name: 'JavaScript The Good Parts',
+    author: {
+      name: 'Douglas Crockford'
+    }
   };
-}
 
-console.log(getGameObject());
-
-//-----------------------
-
-return
-1
+console.log(book.author.name);
 
 //-----------------------
 
-return 1;
-return 'Hello'
-return true;
+const book = {
+    name: 'How JavaScript Works'
+};
 
-throw 'There was an error';
+console.log(book.author.name);
+
+//-----------------------
+
+const book = {
+    name: 'JavaScript The Good Parts',
+    author: {
+      name: 'Douglas Crockford'
+    }
+  };
+
+console.log(book.author.name);
+
+//-----------------------
+
+const book = {
+    name: 'How JavaScript Works'
+};
+
+console.log(book.author.name);
+
+//-----------------------
+
+const book = {
+    name: 'How JavaScript Works'
+};
+
+console.log(book.author?.name);

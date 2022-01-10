@@ -1,131 +1,144 @@
-const gamesObj = {
-  1: 'Citadels',
-  2: 'Tzolkin'  
+const movie = function(){};
+movie.title = 'Toc Toc';
+movie.year = 2017;
+delete movie.year;
+
+//----------------------
+
+const Integer = function(value){ 
+  return parseInt(value);
 };
 
-//-------------------
+Integer('123');
 
-const gamesMap = new Map([
-  [1, 'Citadels'],
-  [2, 'Tzolkin']
-]);
+//----------------------
 
-//-------------------
+Integer.isInteger = function(value){
+  return value === Number.parseInt(value);
+}
 
-console.log(gamesObj[1]);
-console.log(gamesObj['1']);
+Integer.isInterger(123);
 
-gamesMap.get(1)
-gamesMap.get('1')
+//----------------------
 
-//-------------------
+const x = function(){ return 'Hi' };
+x.type = 'Greeting';
 
-console.log(Object.prototype);
+x();
 
-const mapObject = {};
-console.log(mapObject['toString']);
+x.type
 
-//-------------------
+//----------------------
 
-const mapObject = Object.create(null);
+const text = 'Hi';
+text.type = 'greeting';
 
-console.log(mapObject['toString']);
+console.log(text.type);
 
-//-------------------
+//----------------------
 
-const gamesObj = {
-  2: 'Tzolkin',
-  1: 'Citadels',
-};
+'in bruges'.toUpperCase(); 
 
-const keys = Object.keys(gamesObj);
+//----------------------
 
-const keyValuePairs = Object.entries(gamesObj);
+null.msg; 
 
-//-------------------
+undefined.length; 
 
-const gamesMap = new Map([
-  [2, 'Tzolkin'],
-  [1, 'Citadels']
-])
+//----------------------
 
-const keys = gamesMap.keys();
+const x = null;
 
-const keyValuePairs = gamesMap.entries();
+x.msg = 'Hi';
 
-//-------------------
+//----------------------
 
-gamesObj[1];
+typeof(null);
 
-gamesMap.get(1);
+//----------------------
 
-//-------------------
+Number('1')
 
-gamesMap.has(1);
+String(1)
 
-gamesMap.get(3);
+Boolean(0)
 
-gamesObj.hasOwnProperty(1);
+//----------------------
 
-//-------------------
+const no = 1;
+typeof no
 
-gamesMap.set(3, 'Catan'); 
+//----------------------
 
-gamesObj[3] = 'Catan';
+const noObj = new Number(1);
+typeof noObj
 
-//-------------------
+noObj.valueOf() === no
 
-gamesMap.delete(1);
+//----------------------
 
-delete gamesObl[1];
+const a = 1;
+const b = a;
 
-//-------------------
+//----------------------
 
-console.log(gamesMap.size);
+const a = { value: 1};
+const b = a;
 
-gamesMap.size === 0
+a.value = 2;
+console.log(b.value)
 
-const size = Object.keys(gamesObj).length;
-console.log(size);
+//----------------------
 
-//-------------------
+function changeTo(value, newValue){
+  value = newValue;
+}
 
-const gamesMap = new Map([
-  [1, 'Citadels'],
-  [2, 'Tzolkin']
-]);
+const a = 1;
+changeTo(a, 2);
 
-gamesMap.forEach((value, key)=>{
-   console.log(`${key} - ${value}`)
-  });
+console.log(a);
 
-//-------------------
+//----------------------
 
-const gamesObj = {
-  1: 'Citadels',
-  2: 'Tzolkin'  
-};
+function changeTo(obj, newValue){
+  obj.value = newValue;
+}
 
-Object
-  .entries(gamesObj)
-  .forEach(([key, value])=>{
-    console.log(`${key} - ${value}`)
-  });
+const a = {value : 1};
+changeTo(a, 2);
 
-//-------------------
+console.log(a);
 
-const gamesObj = {
-  1: 'Citadels',
-  2: 'Tzolkin'  
-};
+//----------------------
 
-const json = JSON.stringify(gamesObj);
+1 === 1
 
-//-------------------
+'Hi' === 'Hi'
 
-const gamesMap = new Map([
-  [1, 'Citadels'],
-  [2, 'Tzolkin']
-]);
+true === true
 
-const json = JSON.stringify(gamesMap);
+[] === []
+
+{} === {}
+
+{ msg: 'Hi'} === { msg: 'Hi'}
+
+//----------------------
+
+const obj1 = {};
+const obj2 = obj1;
+
+obj1 === obj2
+
+//----------------------
+
+'use strict';
+
+const text = 'ABC';
+text[0] = 'a';
+
+//----------------------
+
+const arr = ['A', 'B', 'C'];
+arr[0] = 'a';

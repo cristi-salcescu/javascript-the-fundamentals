@@ -2,7 +2,9 @@
 
 JavaScript is the language of the web and one of the most used programming languages.
 
-It puts together some powerful features like closures, functions as values, objects as dynamic collections of properties,experimental characteristics, the prototype system, and some dangerous features such as the type coercion system.
+It puts together some powerful features like closures,
+functions as values, objects as dynamic collections of properties, experimental
+characteristics, the prototype system, and some dangerous features such as the type coercion system.
 
 Here are some of the things you will learn:
 
